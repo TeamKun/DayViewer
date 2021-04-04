@@ -1,0 +1,8 @@
+# 1日目の日付(int)
+first_day: 1
+
+# 最後の日付(int)
+last_day: 100
+
+# 1日当たりの分数(double)
+day_min: 6

@@ -1,0 +1,15 @@
+name: DayViewer
+version: ${project.version}
+main: net.kunmc.lab.dayviewer.DayViewer
+api-version: 1.16
+authors: [ Nagatuki ]
+
+commands:
+  day-viewer:
+    usage: Unknown command. Type "/day-view help" for help.
+    description: Day View Plugin
+    permission: day-viewer
+
+permissions:
+  day-viewer:
+    default: op
