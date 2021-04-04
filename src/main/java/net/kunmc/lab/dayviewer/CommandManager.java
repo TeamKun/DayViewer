@@ -81,7 +81,7 @@ public class CommandManager implements CommandExecutor, TabCompleter {
             try {
                 double value = Double.parseDouble(args[1]);
                 if (DayViewer.plugin.config.setDayMin(value)) {
-                    sender.sendMessage(String.format("%s\"一日当の分数\" が %s に設定されました。", prefixAccept, args[1]));
+                    sender.sendMessage(String.format("%s\"一日あたりの分数\" が %s に設定されました。", prefixAccept, args[1]));
                     return true;
                 }
             } catch (Exception ignore) {

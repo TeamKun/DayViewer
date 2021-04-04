@@ -11,32 +11,26 @@ public class Task extends BukkitRunnable {
         this.today = first;
         this.lastDay = last;
         this.plugin = DayViewer.plugin;
-
-        String message = String.format("%d 日目", today);
-        sendTitle(message);
     }
 
     public int getToday() {
-        return today;
+        return today - 1;
     }
 
     private void sendTitle(String message) {
-        plugin.getServer().getOnlinePlayers()
-                .stream().parallel()
-                .forEach(v -> v.sendTitle(message, ""));
+        plugin.getServer().broadcastMessage(message);
     }
 
     @Override
     public void run() {
-        ++today;
-
         if (today <= lastDay) {
-            String message = String.format("%d 日目", today);
+            String message = String.format(" %d 日目です", today);
             sendTitle(message);
+            ++today;
         } else {
             String message = "ゲームクリア";
             sendTitle(message);
-            this.cancel();
+            DayViewer.plugin.stop();
         }
     }
 }

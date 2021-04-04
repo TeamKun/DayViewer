@@ -3,14 +3,11 @@ package net.kunmc.lab.dayviewer;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class Config {
-    private DayViewer plugin;
-
     private int firstDay = 1;
     private int lastDay = 100;
     private double dayMin = 6;
 
     Config() {
-        plugin = DayViewer.plugin;
         loadConfig(false);
     }
 
@@ -19,7 +16,7 @@ public class Config {
     }
 
     public boolean loadConfig(boolean isReload) {
-        DayViewer plugin = this.plugin;
+        DayViewer plugin = DayViewer.plugin;
 
         plugin.saveDefaultConfig();
 
@@ -67,7 +64,7 @@ public class Config {
     }
 
     public boolean setDayMin(double dayMin) {
-        if (dayMin < 1) return false;
+        if (dayMin < 0.1) return false;
 
         this.dayMin = dayMin;
         return true;

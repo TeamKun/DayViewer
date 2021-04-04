@@ -32,9 +32,10 @@ public final class DayViewer extends JavaPlugin {
         if (running) return;
         running = true;
 
-        double dayTicks = config.getDayMin() * 60 * 20;
+        double dayTicksDouble = config.getDayMin() * 60 * 20;
+        long dayTicks = (long) dayTicksDouble;
         task = new Task(firstDay, lastDay);
-        bukkitTask = task.runTaskTimer(this, 0, (long) dayTicks);
+        bukkitTask = task.runTaskTimer(this, 0, dayTicks);
     }
 
     public void stop() {
